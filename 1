@@ -1,0 +1,150 @@
+import os
+import time
+import tkinter
+
+def handleButton(event):
+        global t
+        global w
+        w['text'] = str(t.get())
+
+top = tkinter.Tk()
+
+t = tkinter.Entry(top)
+t.pack()
+
+w = tkinter.Label(top,text='')
+w.pack()
+
+b = tkinter.Button(top,text='Zeit Einstellen')
+b.pack()
+b.bind('<Button-1>',handleButton)
+
+top.mainloop()
+
+Stunde = int(input("Bitte Stunde einstellen"))
+Stunde1 = '%0.2d' %(Stunde)
+Minuten = int(input("Bitte Minute einstellen"))
+Minuten1 = '%0.2d' %(Minuten)
+Sekunde = int(input("Bitte Sekude einstellen"))#Sekunde mit einer "0" stelle angeben
+Sekunde1 = '%0.2d' %(Sekunde)
+
+Uzeit = Stunde1+ ':' +Minuten1+ ':' +Sekunde1 
+Tzeit = Stunde1+ ':' +Minuten1
+print("Fische werden gefuettert um "+ Tzeit+ " Uhr")
+
+
+
+## Schaltzeiten #############
+######## EIN ####### AUS #####
+teich =[Uzeit]
+
+
+def get_current_time() :
+	localtime = time.localtime(time.time())
+	
+	year=localtime.tm_year
+	month=localtime.tm_mon
+	day=localtime.tm_mday
+		
+	hour=  '%0.2d' %(localtime.tm_hour)
+	minute='%0.2d' %(localtime.tm_min)
+	second='%0.2d' %(localtime.tm_sec)
+		
+	return hour+':'+minute+':'+second
+	
+def get_on_off(listindex):
+	if listindex%2==0:
+		print('LICHT==EIN')
+		command=1
+		
+	else :
+		print('LICHT==AUS')
+		command=0
+			
+	return command
+
+while 1 :
+	zeit=get_current_time()
+	
+	if zeit in teich :
+		cmd=get_on_off(teich.index(zeit))
+		print('Command='+str(cmd))
+		
+	print(zeit)
+	time.sleep(60) # 1 sekunde
+
+import os
+import time
+import tkinter
+
+def handleButton(event):
+        global t
+        global w
+        w['text'] = str(t.get())
+
+top = tkinter.Tk()
+
+t = tkinter.Entry(top)
+t.pack()
+
+w = tkinter.Label(top,text='')
+w.pack()
+
+b = tkinter.Button(top,text='Zeit Einstellen')
+b.pack()
+b.bind('<Button-1>',handleButton)
+
+top.mainloop()
+
+Stunde = int(input("Bitte Stunde einstellen"))
+Stunde1 = '%0.2d' %(Stunde)
+Minuten = int(input("Bitte Minute einstellen"))
+Minuten1 = '%0.2d' %(Minuten)
+Sekunde = int(input("Bitte Sekude einstellen"))#Sekunde mit einer "0" stelle angeben
+Sekunde1 = '%0.2d' %(Sekunde)
+
+Uzeit = Stunde1+ ':' +Minuten1+ ':' +Sekunde1 
+Tzeit = Stunde1+ ':' +Minuten1
+print("Fische werden gefuettert um "+ Tzeit+ " Uhr")
+
+
+
+## Schaltzeiten #############
+######## EIN ####### AUS #####
+teich =[Uzeit]
+
+
+def get_current_time() :
+	localtime = time.localtime(time.time())
+	
+	year=localtime.tm_year
+	month=localtime.tm_mon
+	day=localtime.tm_mday
+		
+	hour=  '%0.2d' %(localtime.tm_hour)
+	minute='%0.2d' %(localtime.tm_min)
+	second='%0.2d' %(localtime.tm_sec)
+		
+	return hour+':'+minute+':'+second
+	
+def get_on_off(listindex):
+	if listindex%2==0:
+		print('LICHT==EIN')
+		command=1
+		
+	else :
+		print('LICHT==AUS')
+		command=0
+			
+	return command
+
+while 1 :
+	zeit=get_current_time()
+	
+	if zeit in teich :
+		cmd=get_on_off(teich.index(zeit))
+		print('Command='+str(cmd))
+		
+	print(zeit)
+	time.sleep(60) # 1 sekunde
+
